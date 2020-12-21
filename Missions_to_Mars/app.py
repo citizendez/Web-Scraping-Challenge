@@ -13,6 +13,8 @@ def index():
 
 @app.route("/scrape")
 def do_scape():
-    return  scrape()
+    scrape()
+    return 'scrape complete'
+    
 if __name__ == "__main__":
     app.run(debug=True)
