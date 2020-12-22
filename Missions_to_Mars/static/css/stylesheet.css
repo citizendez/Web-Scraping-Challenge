@@ -5,3 +5,28 @@
 .dataframe thead {
     display: none;
 }
+
+.dataframe tr td:first-child {
+    font-weight: bold;
+}
+
+.dataframe tr:nth-child(even) {
+    background: #eee;
+}
+
+.dataframe td  {
+    padding: .5em;
+    font-size: 1.5em;
+}
+
+@media (max-width: 1500px) {
+    .dataframe td  {
+        font-size: .9em;
+    }
+}
+.btn {
+  background: rgb(3, 3, 3); 
+  border-color: rgb(3, 3, 3);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) ;
+ 
+}

@@ -5,19 +5,22 @@ from webdriver_manager.chrome import ChromeDriverManager
 from splinter import Browser
 import pandas as pd
 import json
+import time
 
 # get table data, exports to html
 def get_data_table():
     url = 'https://space-facts.com/mars/'
     dfs = pd.read_html(url) 
-    dfs[0].to_html('templates/space-facts.html', index=False)    
+
+    dfs[0].to_html('Missions_to_Mars/templates/space-facts.html', index=False)    
+
 
 #get_data_table() 
 #Main Scraper function
 def scrape():
     
     get_data_table() 
- 
+
     #create browser session
     executable_path = {'executable_path': ChromeDriverManager().install()}
     browser = Browser('chrome', **executable_path, headless=False)
@@ -25,7 +28,7 @@ def scrape():
     # URL of nasa news page to be scraped
     url = 'https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest'
     browser.visit(url)
-    
+    time.sleep(1)
     #scrape sight for article
     html = browser.html
     soup = BeautifulSoup(html, 'html.parser') 
@@ -83,7 +86,7 @@ def scrape():
             #loop through downloads to find images 
             img_url = ''
             for dl in downloads: 
-                if '.tif' == dl['href'][-4:]: 
+                if '.jpg' == dl['href'][-4:]: 
                     img_url=dl['href']
             #append to dic list   
             title = soup.find('h2', class_="title").text
