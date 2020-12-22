@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="/static/css/stylesheet.css">
-    <title>Hello, world!</title>
+    
   </head>
 
   <body>
@@ -37,8 +37,18 @@
             </div>
             <!--table-->
             <div class="col-lg-4">
-
+                <h2>Mars Facts</h2>
+               {% include 'space-facts.html' %}
             </div> 
+        </div>
+        <!--HEMISPHERES-->
+        <div class="row">
+            {% for article in articles%}
+                <div class='col-lg-6 '>
+               <h2> {{article.title}}</h2>
+                <img src="https://{{feature['Feaured Image URL']}}" alt="" class='feat_img'>
+            </div>
+            {% endfor%}
         </div>
     </div>
     <!-- Optional JavaScript -->

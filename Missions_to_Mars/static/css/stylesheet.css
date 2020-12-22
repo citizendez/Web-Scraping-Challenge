@@ -1,3 +1,7 @@
 .feat_img{
-    max-width: 800px;
+    max-width: 90%;
+}
+
+.dataframe thead {
+    display: none;
 }

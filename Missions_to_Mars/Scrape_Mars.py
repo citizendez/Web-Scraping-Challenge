@@ -10,8 +10,9 @@ import json
 def get_data_table():
     url = 'https://space-facts.com/mars/'
     dfs = pd.read_html(url) 
-    dfs[0].to_html('data/space-facts.html')    
+    dfs[0].to_html('templates/space-facts.html', index=False)    
 
+#get_data_table() 
 #Main Scraper function
 def scrape():
     

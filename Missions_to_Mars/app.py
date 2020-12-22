@@ -16,7 +16,8 @@ def index():
     db = client.mars_db
     features = db.features.find()
     feature = features[0]
-    return render_template('index.html', feature=feature)
+    articles = db.articles.find()
+    return render_template('index.html', feature=feature, articles=articles)
     
 
 @app.route("/scrape")
