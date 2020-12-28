@@ -19,7 +19,7 @@ def index():
     articles = db.articles.find()
     return render_template('index.html', feature=feature, articles=articles)
     
-
+# create rout for scraping
 @app.route("/scrape")
 def do_scape():
     scrape()
