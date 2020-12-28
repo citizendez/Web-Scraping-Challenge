@@ -21,7 +21,7 @@ def scrape():
     
     get_data_table() 
 
-    #create browser session
+    #create browser path and session
     executable_path = {'executable_path': ChromeDriverManager().install()}
     browser = Browser('chrome', **executable_path, headless=False)
 
