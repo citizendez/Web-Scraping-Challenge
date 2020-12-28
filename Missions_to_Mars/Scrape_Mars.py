@@ -12,7 +12,7 @@ def get_data_table():
     url = 'https://space-facts.com/mars/'
     dfs = pd.read_html(url) 
 
-    dfs[0].to_html('Missions_to_Mars/templates/space-facts.html', index=False)    
+    dfs[0].to_html('templates/space-facts.html', index=False)    
 
 
 #get_data_table() 
