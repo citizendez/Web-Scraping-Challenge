@@ -6,4 +6,4 @@
 - Visit the USGS Astrogeology site to obtain high resolution images for each of Mars' hemispheres    
 
 ## MongoDB Flask App  
--
+-Use MongoDB with Flask templating to create a new HTML page that displays all of the information that was scraped from above  
