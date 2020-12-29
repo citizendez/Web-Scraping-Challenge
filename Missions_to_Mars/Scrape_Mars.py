@@ -6,13 +6,33 @@ from splinter import Browser
 import pandas as pd
 import json
 import time
+import os
 
 # get table data, exports to html
+def dir_exists(dir):
+    does_exists = False    
+    try: 
+        with open( dir ) as f:
+            does_exists = True
+            print(f'{dir} exists') # Do something with the file
+    except IOError: 
+        print("FileNotFoundError") 
+
+    return does_exists
+
+#x = dir_exists('Missions_to_Mars/templates/space-facts.html')
+#print(x)
+
 def get_data_table():
     url = 'https://space-facts.com/mars/'
     dfs = pd.read_html(url) 
-
-    dfs[0].to_html('templates/space-facts.html', index=False)    
+    #soulution to solve path problem
+    if dir_exists('Missions_to_Mars/templates/space-facts.html'):
+        dfs[0].to_html('Missions_to_Mars/templates/space-facts.html', index=False)
+    elif dir_exists('templates/space-facts.html'):
+        dfs[0].to_html('templates/space-facts.html', index=False) 
+    else:
+        print('directory not found')   
 
 
 #get_data_table() 
